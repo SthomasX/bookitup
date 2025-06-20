@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-const LoginPage = () => {
-  const [emailOrPhone, setEmailOrPhone] = useState('');
+const SignUp = () => {
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,45 +12,51 @@ const LoginPage = () => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phonePattern = /^\+?\d{10,15}$/;
 
-    if (emailPattern.test(emailOrPhone) || phonePattern.test(emailOrPhone)) {
-      setError('');
-      alert('Login successful (dummy alert)!');
+    if (!phonePattern.test(phone)) {
+      setError('Invalid phone number format');
+    } else if (!emailPattern.test(email)) {
+      setError('Invalid email format');
+    } else if (password.length < 6) {
+      setError('Password must be at least 6 characters');
     } else {
-      setError('Invalid email or phone number format');
+      setError('');
+      alert('Sign Up Successful (dummy alert)');
+      // Here you can add backend API call to register the user
     }
-  };
-
-  const handleSignUp = () => {
-    navigate('/signup');  // redirect to signup page
   };
 
   return (
     <div style={styles.container}>
-      <div style={styles.loginBox}>
-        <h2>Login</h2>
+      <div style={styles.signUpBox}>
+        <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Email or Phone Number"
-            value={emailOrPhone}
-            onChange={(e) => setEmailOrPhone(e.target.value)}
+            placeholder="Phone Number"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            style={styles.input}
+            required
+          />
+          <input
+            type="text"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             style={styles.input}
             required
           />
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Create Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             style={styles.input}
             required
           />
           {error && <div style={styles.error}>{error}</div>}
-          <button type="submit" style={styles.button}>Login</button>
+          <button type="submit" style={styles.button}>Sign Up</button>
         </form>
-        <button onClick={handleSignUp} style={styles.signUpButton}>
-          Sign Up for New User
-        </button>
       </div>
     </div>
   );
@@ -65,7 +70,7 @@ const styles = {
     alignItems: 'center',
     background: '#f0f2f5',
   },
-  loginBox: {
+  signUpBox: {
     background: '#fff',
     padding: '30px',
     borderRadius: '10px',
@@ -83,17 +88,6 @@ const styles = {
   button: {
     width: '100%',
     padding: '10px',
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    marginTop: '10px',
-  },
-  signUpButton: {
-    width: '100%',
-    padding: '10px',
     backgroundColor: '#007bff',
     color: 'white',
     border: 'none',
@@ -109,4 +103,4 @@ const styles = {
   },
 };
 
-export default LoginPage;
+export default SignUp;
