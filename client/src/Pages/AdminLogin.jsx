@@ -1,21 +1,41 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AdminLogin = () => {
+  const navigate = useNavigate();
   const [adminEmail, setAdminEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  const validateForm = () => {
+    if (!adminEmail || !password) {
+      setError('Both fields are required');
+      return false;
+    }
+    const emailRegex = /\S+@\S+\.\S+/;
+    if (!emailRegex.test(adminEmail)) {
+      setError('Invalid email format');
+      return false;
+    }
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters');
+      return false;
+    }
+    return true;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // You can replace this with actual admin email validation
-    const validAdminEmail = 'admin@example.com';
+    if (!validateForm()) return;
+
+    const validAdminEmail = 'admin@gmail.com';
     const validPassword = 'admin123';
 
     if (adminEmail === validAdminEmail && password === validPassword) {
       setError('');
       alert('Admin Login Successful!');
-      // Redirect or handle successful admin login
+      navigate('/admin/dashboard'); // 🔄 Redirect
     } else {
       setError('Invalid Admin Credentials');
     }
@@ -28,11 +48,10 @@ const AdminLogin = () => {
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Admin Email or Username"
+            placeholder="Admin Email"
             value={adminEmail}
             onChange={(e) => setAdminEmail(e.target.value)}
             style={styles.input}
-            required
           />
           <input
             type="password"
@@ -40,7 +59,6 @@ const AdminLogin = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             style={styles.input}
-            required
           />
           {error && <div style={styles.error}>{error}</div>}
           <button type="submit" style={styles.button}>Login</button>

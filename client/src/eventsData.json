@@ -1,0 +1,210 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Dune: Part Two",
+      "venue": "IMAX Theater",
+      "price": 14.99,
+      "image": "https://source.unsplash.com/random/300x200/?scifi,movie",
+      "date": "2023-11-15",
+      "timings": ["11:00", "14:30", "18:00", "21:30"],
+      "description": "The epic continuation of the Dune saga as Paul Atreides unites with the Fremen to seek revenge against those who destroyed his family."
+    },
+    {
+      "id": 2,
+      "title": "The Batman",
+      "venue": "Cineplex Downtown",
+      "price": 12.99,
+      "image": "https://source.unsplash.com/random/300x200/?batman",
+      "date": "2023-11-16",
+      "timings": ["12:00", "15:30", "19:00", "22:15"],
+      "description": "When a sadistic serial killer begins murdering key political figures in Gotham, Batman is forced to investigate."
+    },
+    {
+      "id": 3,
+      "title": "Avatar: The Way of Water",
+      "venue": "3D Premium Cinema",
+      "price": 16.99,
+      "image": "https://source.unsplash.com/random/300x200/?avatar",
+      "date": "2023-11-17",
+      "timings": ["10:30", "14:00", "17:30", "21:00"],
+      "description": "Jake Sully lives with his newfound family formed on the planet of Pandora as a familiar threat returns."
+    },
+    {
+      "id": 4,
+      "title": "Top Gun: Maverick",
+      "venue": "Dolby Atmos Theater",
+      "price": 13.99,
+      "image": "https://source.unsplash.com/random/300x200/?fighter,jet",
+      "date": "2023-11-18",
+      "timings": ["11:30", "15:00", "18:30", "22:00"],
+      "description": "After more than thirty years of service as one of the Navy's top aviators, Pete Mitchell returns to train a new generation."
+    },
+    {
+      "id": 5,
+      "title": "Black Panther: Wakanda Forever",
+      "venue": "Marvel Fan Screen",
+      "price": 15.99,
+      "image": "https://source.unsplash.com/random/300x200/?wakanda",
+      "date": "2023-11-19",
+      "timings": ["12:30", "16:00", "19:30", "23:00"],
+      "description": "The people of Wakanda fight to protect their home from intervening world powers as they mourn the death of King T'Challa."
+    }
+  ],
+  "comedy": [
+    {
+      "id": 1,
+      "title": "Kevin Hart: Reality Check",
+      "venue": "Laugh Factory",
+      "price": 45.00,
+      "image": "https://source.unsplash.com/random/300x200/?kevin,hart",
+      "date": "2023-11-20",
+      "timings": ["19:00", "21:30"],
+      "description": "Kevin Hart returns with his signature high-energy humor about family, fame, and the ridiculousness of everyday life."
+    },
+    {
+      "id": 2,
+      "title": "Ali Wong: Don Wong",
+      "venue": "Comedy Central Club",
+      "price": 39.99,
+      "image": "https://source.unsplash.com/random/300x200/?ali,wong",
+      "date": "2023-11-21",
+      "timings": ["18:30", "21:00"],
+      "description": "Ali Wong's hilarious take on money, power, desire, and her own personal journey in the comedy world."
+    },
+    {
+      "id": 3,
+      "title": "Dave Chappelle Live",
+      "venue": "The Improv",
+      "price": 65.00,
+      "image": "https://source.unsplash.com/random/300x200/?dave,chappelle",
+      "date": "2023-11-22",
+      "timings": ["20:00"],
+      "description": "The legendary comedian returns with his sharp, thought-provoking, and boundary-pushing stand-up comedy."
+    },
+    {
+      "id": 4,
+      "title": "Trevor Noah: Off the Record",
+      "venue": "Comedy Cellar",
+      "price": 49.99,
+      "image": "https://source.unsplash.com/random/300x200/?trevor,noah",
+      "date": "2023-11-23",
+      "timings": ["19:30", "22:00"],
+      "description": "Trevor Noah shares his unique perspective on current events, culture, and his personal experiences."
+    },
+    {
+      "id": 5,
+      "title": "John Mulaney: From Scratch",
+      "venue": "The Comedy Store",
+      "price": 55.00,
+      "image": "https://source.unsplash.com/random/300x200/?john,mulaney",
+      "date": "2023-11-24",
+      "timings": ["20:00"],
+      "description": "John Mulaney's triumphant return to stand-up with all-new material about his life and recent experiences."
+    }
+  ],
+  "music": [
+    {
+      "id": 1,
+      "title": "Taylor Swift: The Eras Tour",
+      "venue": "MetLife Stadium",
+      "price": 199.99,
+      "image": "https://source.unsplash.com/random/300x200/?taylor,swift",
+      "date": "2023-11-25",
+      "timings": ["18:30"],
+      "description": "A journey through all of Taylor Swift's musical eras with spectacular production and surprise songs."
+    },
+    {
+      "id": 2,
+      "title": "Beyoncé: Renaissance World Tour",
+      "venue": "Madison Square Garden",
+      "price": 249.99,
+      "image": "https://source.unsplash.com/random/300x200/?beyonce",
+      "date": "2023-11-26",
+      "timings": ["20:00"],
+      "description": "Beyoncé celebrates her groundbreaking Renaissance album with this spectacular visual and musical experience."
+    },
+    {
+      "id": 3,
+      "title": "Ed Sheeran: +-=÷× Tour",
+      "venue": "Wembley Stadium",
+      "price": 89.99,
+      "image": "https://source.unsplash.com/random/300x200/?ed,sheeran",
+      "date": "2023-11-27",
+      "timings": ["19:00"],
+      "description": "Ed Sheeran performs hits from his entire catalog in this intimate stadium experience."
+    },
+    {
+      "id": 4,
+      "title": "Coldplay: Music of the Spheres",
+      "venue": "Rose Bowl",
+      "price": 129.99,
+      "image": "https://source.unsplash.com/random/300x200/?coldplay",
+      "date": "2023-11-28",
+      "timings": ["19:30"],
+      "description": "A spectacular show featuring Coldplay's greatest hits and new material with stunning visual effects."
+    },
+    {
+      "id": 5,
+      "title": "The Weeknd: After Hours Til Dawn",
+      "venue": "SoFi Stadium",
+      "price": 149.99,
+      "image": "https://source.unsplash.com/random/300x200/?the,weeknd",
+      "date": "2023-11-29",
+      "timings": ["20:30"],
+      "description": "The Weeknd brings his dark, cinematic vision to life with this stadium spectacular."
+    }
+  ],
+  "festivals": [
+    {
+      "id": 1,
+      "title": "Coachella Weekend 1",
+      "venue": "Empire Polo Club",
+      "price": 499.99,
+      "image": "https://source.unsplash.com/random/300x200/?coachella",
+      "date": "2023-11-30",
+      "timings": ["12:00"],
+      "description": "The iconic music and arts festival featuring top musical acts, art installations, and food experiences."
+    },
+    {
+      "id": 2,
+      "title": "Lollapalooza",
+      "venue": "Grant Park",
+      "price": 349.99,
+      "image": "https://source.unsplash.com/random/300x200/?lollapalooza",
+      "date": "2023-12-01",
+      "timings": ["11:00"],
+      "description": "Chicago's premier music festival featuring rock, hip-hop, EDM, and more across multiple stages."
+    },
+    {
+      "id": 3,
+      "title": "Glastonbury Festival",
+      "venue": "Worthy Farm",
+      "price": 299.99,
+      "image": "https://source.unsplash.com/random/300x200/?glastonbury",
+      "date": "2023-12-02",
+      "timings": ["10:00"],
+      "description": "The legendary UK festival featuring diverse music, theater, comedy, and arts across 900 acres."
+    },
+    {
+      "id": 4,
+      "title": "SXSW Music Festival",
+      "venue": "Downtown Austin",
+      "price": 199.99,
+      "image": "https://source.unsplash.com/random/300x200/?sxsw",
+      "date": "2023-12-03",
+      "timings": ["12:00"],
+      "description": "The convergence of tech, film, and music with hundreds of performances across Austin venues."
+    },
+    {
+      "id": 5,
+      "title": "Tomorrowland",
+      "venue": "Boom, Belgium",
+      "price": 399.99,
+      "image": "https://source.unsplash.com/random/300x200/?tomorrowland",
+      "date": "2023-12-04",
+      "timings": ["14:00"],
+      "description": "The world's most spectacular electronic dance music festival with mind-blowing stage production."
+    }
+  ]
+}

@@ -2,11 +2,15 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Home from './Pages/Home';
+import UserHome from './Pages/UserHome';
 import UserLogin from './Pages/UserLogin';
 import AdminLogin from './Pages/AdminLogin';
-import SignUp from './Pages/usersignup'; // <-- import your SignUp page
+import AdminDashboard from './Pages/AdminDashboard'; // ✅ Import Admin Dashboard
+import SignUp from './Pages/usersignup';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import CategoryPage from './Pages/CategoryPage';
+
 
 function App() {
   return (
@@ -15,8 +19,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/user-login" element={<UserLogin />} />
+        <Route path="/user/home" element={<UserHome />} /> // Add this component
         <Route path="/admin-login" element={<AdminLogin />} />
-        <Route path="/signup" element={<SignUp />} /> {/* new route for SignUp */}
+        <Route path="/admin/dashboard" element={<AdminDashboard />} /> {/* ✅ Admin Dashboard Route */}
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/movies" element={<CategoryPage category="movies" />} />
+        <Route path="/comedy" element={<CategoryPage category="comedy" />} />
+        <Route path="/music" element={<CategoryPage category="music" />} />
+        <Route path="/festivals" element={<CategoryPage category="festivals" />} />
       </Routes>
       <Footer />
     </Router>
@@ -24,4 +34,3 @@ function App() {
 }
 
 export default App;
-

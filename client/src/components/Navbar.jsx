@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css'; // Make sure this file exists
+import '../App.css';
 
 const Navbar = () => {
+  const categories = ['movies', 'comedy', 'music', 'festivals'];
+  
   return (
     <nav className="navbar">
       {/* Logo */}
@@ -12,8 +14,16 @@ const Navbar = () => {
 
       {/* Nav Links */}
       <ul className="nav-links">
-        <li><Link to="/movies">Movies</Link></li>
-        <li><Link to="/events">Events</Link></li>
+        {categories.map((category) => (
+          <li key={category}>
+            <Link 
+              to={`/${category}`} 
+              className="nav-link"
+            >
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </Link>
+          </li>
+        ))}
       </ul>
 
       {/* Login Buttons */}

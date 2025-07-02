@@ -1,18 +1,15 @@
+/* Base Styles */
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
+/* Header/Layout Styles */
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -28,14 +25,7 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Navbar Styles (Updated) */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -44,7 +34,9 @@
   padding: 15px 30px;
   color: white;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  font-family: sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo a {
@@ -52,41 +44,53 @@
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.logo a:hover {
+  color: #21a1f1;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links a {
   color: white;
   text-decoration: none;
   font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 
 .nav-links a:hover {
   color: #61dafb;
+  background-color: rgba(97, 218, 251, 0.1);
 }
 
 .login-buttons {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
 
 .login-buttons button {
-  padding: 8px 14px;
+  padding: 8px 16px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-weight: 500;
   font-size: 14px;
+  transition: all 0.3s ease;
 }
 
 .user-btn {
   background-color: #61dafb;
-  color: white;
+  color: #121212;
 }
 
 .admin-btn {
@@ -102,27 +106,197 @@
   background-color: #0056b3;
 }
 
+/* Main Content Styles */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Card Component Styles */
+.card {
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #121212;
+}
+
+.card-venue, .card-date {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.card-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #007bff;
+  margin-top: 10px;
+}
+
+/* Category Page Styles */
+.category-page {
+  padding: 20px 0;
+}
+
+.page-title {
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #121212;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  padding: 20px 0;
+}
+
+/* Booking Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  padding: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 22px;
+  color: #121212;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #666;
+}
+
+.event-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.event-details {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #007bff;
+  margin: 20px 0;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #61dafb;
+  color: #121212;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #21a1f1;
+}
+
+/* Footer Styles */
 .footer {
   background-color: #121212;
   color: white;
   padding: 30px 40px;
-  font-family: sans-serif;
 }
 
 .footer-sections {
   display: flex;
   justify-content: space-between;
-  flex-wrap: nowrap; /* ensures 3 horizontal columns on large screens */
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .footer-section {
-  flex: 1; /* makes each section occupy equal horizontal space */
+  flex: 1;
+  min-width: 200px;
 }
 
 .footer-section h4 {
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: #61dafb;
 }
 
@@ -132,13 +306,14 @@
 }
 
 .footer-section li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .footer-section a {
   color: white;
   text-decoration: none;
   font-size: 14px;
+  transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
@@ -150,4 +325,47 @@
   text-align: center;
   font-size: 13px;
   color: #aaa;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  .nav-links {
+    margin: 15px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .login-buttons {
+    margin-top: 15px;
+  }
+  
+  .footer-sections {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Animation */
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
