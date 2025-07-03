@@ -1,26 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import '../App.css';
 
 const Navbar = () => {
+  const location = useLocation();
   const categories = ['movies', 'comedy', 'music', 'festivals'];
-  
+
   return (
     <nav className="navbar">
       {/* Logo */}
       <div className="logo">
-        <Link to="/">Bookitup</Link>
+        <Link to="/" className="logo-link">
+          🎟️ Bookitup
+        </Link>
       </div>
 
-      {/* Nav Links */}
+      {/* Navigation Links */}
       <ul className="nav-links">
         {categories.map((category) => (
           <li key={category}>
-            <Link 
-              to={`/${category}`} 
-              className="nav-link"
+            <Link
+              to={`/${category}`}
+              className={`nav-link ${
+                location.pathname === `/${category}` ? 'active-link' : ''
+              }`}
             >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
+              {category.toUpperCase()}
             </Link>
           </li>
         ))}
@@ -29,10 +34,10 @@ const Navbar = () => {
       {/* Login Buttons */}
       <div className="login-buttons">
         <Link to="/user-login">
-          <button className="user-btn">User Login</button>
+          <button className="btn user-btn">User Login</button>
         </Link>
         <Link to="/admin-login">
-          <button className="admin-btn">Admin Login</button>
+          <button className="btn admin-btn">Admin Login</button>
         </Link>
       </div>
     </nav>

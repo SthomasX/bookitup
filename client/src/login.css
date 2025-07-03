@@ -1,0 +1,100 @@
+
+.login-container {
+  height: 100vh;
+  background: linear-gradient(135deg, #f0f2f5, #dfe9f3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-box {
+  background: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.5s ease;
+}
+
+.login-box h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+  font-size: 26px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  transition: border 0.3s;
+}
+
+.login-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.login-button,
+.signup-button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button {
+  background: linear-gradient(45deg, #4CAF50, #2e7d32);
+  color: white;
+}
+
+.login-button:hover {
+  background: linear-gradient(45deg, #2e7d32, #1b5e20);
+}
+
+.signup-button {
+  background: linear-gradient(45deg, #007bff, #0056b3);
+  color: white;
+}
+
+.signup-button:hover {
+  background: linear-gradient(45deg, #0056b3, #003d80);
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box {
+    padding: 25px;
+  }
+
+  .login-box h2 {
+    font-size: 22px;
+  }
+}

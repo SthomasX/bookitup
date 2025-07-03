@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,8 +22,8 @@ const SignUp = () => {
       setError('Password must be at least 6 characters');
     } else {
       setError('');
-      alert('Sign Up Successful (dummy alert)');
-      // Here you can add backend API call to register the user
+      alert('Sign Up Successful (dummy)');
+      navigate('/user-login'); // Redirect to login page after signup
     }
   };
 

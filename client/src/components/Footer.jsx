@@ -1,18 +1,28 @@
 import React from 'react';
+import {
+  FaFilm,
+  FaCalendarAlt,
+  FaMapMarkerAlt,
+  FaQuestionCircle,
+  FaPhoneAlt,
+  FaInfoCircle
+} from 'react-icons/fa';
 import '../App.css';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="footer">
       <div className="footer-sections">
-
+        
         {/* Quick Links */}
         <div className="footer-section">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="/movies">Movies</a></li>
-            <li><a href="/events">Events</a></li>
-            <li><a href="/venues">Venues</a></li>
+            <li><a href="/movies"><FaFilm style={{ marginRight: '8px' }} />Movies</a></li>
+            <li><a href="/events"><FaCalendarAlt style={{ marginRight: '8px' }} />Events</a></li>
+            <li><a href="/venues"><FaMapMarkerAlt style={{ marginRight: '8px' }} />Venues</a></li>
           </ul>
         </div>
 
@@ -20,9 +30,9 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Support</h4>
           <ul>
-            <li><a href="/faq">FAQs</a></li>
-            <li><a href="/contact">Contact Us</a></li>
-            <li><a href="/help">Help Center</a></li>
+            <li><a href="/faq"><FaQuestionCircle style={{ marginRight: '8px' }} />FAQs</a></li>
+            <li><a href="/contact"><FaPhoneAlt style={{ marginRight: '8px' }} />Contact Us</a></li>
+            <li><a href="/help"><FaInfoCircle style={{ marginRight: '8px' }} />Help Center</a></li>
           </ul>
         </div>
 
@@ -35,11 +45,13 @@ const Footer = () => {
             <li><a href="/privacy">Privacy Policy</a></li>
           </ul>
         </div>
-
       </div>
 
       <div className="footer-bottom">
-        © {new Date().getFullYear()} Bookitup. All rights reserved.
+        <p>© {currentYear} <strong>Bookitup</strong>. All rights reserved.</p>
+        <p style={{ fontSize: '12px', color: '#aaa', marginTop: '5px' }}>
+          Crafted with ❤️ for your next adventure.
+        </p>
       </div>
     </footer>
   );

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../login.css';
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -26,7 +27,6 @@ const AdminLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
     const validAdminEmail = 'admin@gmail.com';
@@ -35,15 +35,15 @@ const AdminLogin = () => {
     if (adminEmail === validAdminEmail && password === validPassword) {
       setError('');
       alert('Admin Login Successful!');
-      navigate('/admin/dashboard'); // 🔄 Redirect
+      navigate('/admin/dashboard');
     } else {
       setError('Invalid Admin Credentials');
     }
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.loginBox}>
+    <div className="login-container">
+      <div className="login-box">
         <h2>Admin Login</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -51,62 +51,21 @@ const AdminLogin = () => {
             placeholder="Admin Email"
             value={adminEmail}
             onChange={(e) => setAdminEmail(e.target.value)}
-            style={styles.input}
+            className="login-input"
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={styles.input}
+            className="login-input"
           />
-          {error && <div style={styles.error}>{error}</div>}
-          <button type="submit" style={styles.button}>Login</button>
+          {error && <div className="error-message">{error}</div>}
+          <button type="submit" className="login-button">Login</button>
         </form>
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    background: '#f0f2f5',
-  },
-  loginBox: {
-    background: '#fff',
-    padding: '30px',
-    borderRadius: '10px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    width: '300px',
-  },
-  input: {
-    width: '100%',
-    padding: '10px',
-    margin: '10px 0',
-    borderRadius: '5px',
-    border: '1px solid #ccc',
-    fontSize: '16px',
-  },
-  button: {
-    width: '100%',
-    padding: '10px',
-    backgroundColor: '#007bff',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    marginTop: '10px',
-  },
-  error: {
-    color: 'red',
-    fontSize: '14px',
-    marginBottom: '10px',
-  },
 };
 
 export default AdminLogin;

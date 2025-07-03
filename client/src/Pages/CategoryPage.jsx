@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../components/Card';
+import Card from '../components/EventCard';
 import eventsData from '../eventsData.json';
 import '../App.css';
 

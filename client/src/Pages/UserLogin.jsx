@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../login.css';
 
 const LoginPage = () => {
   const [emailOrPhone, setEmailOrPhone] = useState('');
@@ -13,100 +14,63 @@ const LoginPage = () => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phonePattern = /^\+?\d{10,15}$/;
 
-    if (emailPattern.test(emailOrPhone) || phonePattern.test(emailOrPhone)) {
-      setError('');
-      alert('Login successful (dummy alert)!');
-    } else {
+    if (!emailPattern.test(emailOrPhone) && !phonePattern.test(emailOrPhone)) {
       setError('Invalid email or phone number format');
+      return;
+    }
+
+    if (password.length < 6) {
+      setError('Password must be at least 6 characters');
+      return;
+    }
+
+    const dummyEmail = 'user@example.com';
+    const dummyPhone = '+911234567890';
+    const dummyPassword = 'user123';
+
+    const isValidUser =
+      (emailOrPhone === dummyEmail || emailOrPhone === dummyPhone) &&
+      password === dummyPassword;
+
+    if (isValidUser) {
+      setError('');
+      alert('Login successful!');
+      navigate('/user/home');
+    } else {
+      setError('Incorrect email/phone or password');
     }
   };
 
   const handleSignUp = () => {
-    navigate('/signup');  // redirect to signup page
+    navigate('/signup');
   };
 
   return (
-    <div style={styles.container}>
-      <div style={styles.loginBox}>
-        <h2>Login</h2>
+    <div className="login-container">
+      <div className="login-box">
+        <h2>User Login</h2>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Email or Phone Number"
             value={emailOrPhone}
             onChange={(e) => setEmailOrPhone(e.target.value)}
-            style={styles.input}
-            required
+            className="login-input"
           />
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={styles.input}
-            required
+            className="login-input"
           />
-          {error && <div style={styles.error}>{error}</div>}
-          <button type="submit" style={styles.button}>Login</button>
+          {error && <div className="error-message">{error}</div>}
+          <button type="submit" className="login-button">Login</button>
         </form>
-        <button onClick={handleSignUp} style={styles.signUpButton}>
-          Sign Up for New User
-        </button>
+        <button onClick={handleSignUp} className="signup-button">Sign Up for New User</button>
       </div>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    background: '#f0f2f5',
-  },
-  loginBox: {
-    background: '#fff',
-    padding: '30px',
-    borderRadius: '10px',
-    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-    width: '300px',
-  },
-  input: {
-    width: '100%',
-    padding: '10px',
-    margin: '10px 0',
-    borderRadius: '5px',
-    border: '1px solid #ccc',
-    fontSize: '16px',
-  },
-  button: {
-    width: '100%',
-    padding: '10px',
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    marginTop: '10px',
-  },
-  signUpButton: {
-    width: '100%',
-    padding: '10px',
-    backgroundColor: '#007bff',
-    color: 'white',
-    border: 'none',
-    borderRadius: '5px',
-    fontSize: '16px',
-    cursor: 'pointer',
-    marginTop: '10px',
-  },
-  error: {
-    color: 'red',
-    fontSize: '14px',
-    marginBottom: '10px',
-  },
 };
 
 export default LoginPage;
