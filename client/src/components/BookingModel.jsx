@@ -62,9 +62,9 @@ const BookingModal = ({ event, onClose }) => {
                 onChange={(e) => setSeatType(e.target.value)}
                 className="form-control"
               >
-                <option value="gold">Gold (${(event.price * 1.5).toFixed(2)})</option>
-                <option value="silver">Silver (${(event.price * 1.2).toFixed(2)})</option>
-                <option value="bronze">Bronze (${event.price.toFixed(2)})</option>
+                <option value="gold">Gold (Rs {(event.price * 1.5).toFixed(2)})</option>
+                <option value="silver">Silver (Rs {(event.price * 1.2).toFixed(2)})</option>
+                <option value="bronze">Bronze (Rs {event.price.toFixed(2)})</option>
               </select>
             </div>
             
@@ -82,7 +82,7 @@ const BookingModal = ({ event, onClose }) => {
             </div>
             
             <div className="total-price">
-              Total: ${(tickets * getSeatPrice(seatType, event.price)).toFixed(2)}
+              Total: Rs {(tickets * getSeatPrice(seatType, event.price)).toFixed(2)}
             </div>
             
             <button 
